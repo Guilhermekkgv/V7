@@ -220,7 +220,7 @@ function Linux.Create(config)
             BackgroundTransparency = 1,
             Size = UDim2.new(0, 0, 1, 0),
             Position = UDim2.new(0, TitleLabel.TextBounds.X + 10, 0, 0),
-            Font = Enum.Font.Gotham,
+            Font = Enum.Font.GothamMedium
             Text = config.SubTitle,
             TextColor3 = Color3.fromRGB(150, 150, 150),
             TextSize = 14,
