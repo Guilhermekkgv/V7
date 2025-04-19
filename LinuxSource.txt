@@ -170,7 +170,7 @@ function Linux.Create(config)
 
     local Main = Linux.Instance("Frame", {
         Parent = LinuxUI,
-        BackgroundColor3 = Color3.fromRGB(23, 23, 23),
+        BackgroundColor3 = Color3.fromRGB(19, 19, 19),
         BorderColor3 = Color3.fromRGB(255, 255, 255),
         BorderSizePixel = 2,
         Size = uiSize,
@@ -373,7 +373,7 @@ function Linux.Create(config)
         local Container1 = Linux.Instance("ScrollingFrame", {
             Parent = TabContent,
             BackgroundTransparency = 1,
-            Size = UDim2.new(0.5, -5, 1, 0),
+            Size = UDim2.new(0.5, -5, 1, -55),
             Position = UDim2.new(0, 5, 0, 30),
             CanvasSize = UDim2.new(0, 0, 0, 0),
             AutomaticCanvasSize = Enum.AutomaticSize.Y,
@@ -395,13 +395,13 @@ function Linux.Create(config)
         Linux.Instance("UIPadding", {
             Parent = Container1,
             PaddingLeft = UDim.new(0, 5),
-            PaddingTop = UDim.new(0, 40)
+            PaddingTop = UDim.new(0, 5)
         })
 
         local Container2 = Linux.Instance("ScrollingFrame", {
             Parent = TabContent,
             BackgroundTransparency = 1,
-            Size = UDim2.new(0.5, -5, 1, 0),
+            Size = UDim2.new(0.5, -5, 1, -55),
             Position = UDim2.new(0.5, 0, 0, 30),
             CanvasSize = UDim2.new(0, 0, 0, 0),
             AutomaticCanvasSize = Enum.AutomaticSize.Y,
@@ -423,7 +423,7 @@ function Linux.Create(config)
         Linux.Instance("UIPadding", {
             Parent = Container2,
             PaddingLeft = UDim.new(0, 5),
-            PaddingTop = UDim.new(0, 40)
+            PaddingTop = UDim.new(0, 5)
         })
 
         local TitleFrame = Linux.Instance("Frame", {
@@ -906,7 +906,7 @@ function Linux.Create(config)
         end
 
         function TabElements.Slider(config)
-            local container = config.Container == 2 and Container1 or Container1
+            local container = config.Container == 2 and Container2 or Container1
             local elementOrder = config.Container == 2 and elementOrder2 or elementOrder1
             if config.Container == 2 then
                 elementOrder2 = elementOrder2 + 1
