@@ -182,7 +182,7 @@ function Linux.Create(config)
 
     Linux.Instance("UICorner", {
         Parent = Main,
-        CornerRadius = UDim.new(0, 6)
+        CornerRadius = UDim.new(0, 10)
     })
 
     local TopBar = Linux.Instance("Frame", {
@@ -316,7 +316,7 @@ function Linux.Create(config)
 
         local TabBtn = Linux.Instance("TextButton", {
             Parent = TabHolder,
-            BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+            BackgroundColor3 = Color3.fromRGB(28, 28, 28),
             BorderColor3 = Color3.fromRGB(255, 255, 255),
             BorderSizePixel = 2,
             Size = UDim2.new(1, -5, 0, 28),
@@ -455,7 +455,7 @@ function Linux.Create(config)
                 tab.Content.Visible = false
                 tab.TitleFrame.Visible = false
                 tab.Text.TextColor3 = Color3.fromRGB(255, 255, 255)
-                tab.Button.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+                tab.Button.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
                 for _, child in pairs(tab.Button:GetChildren()) do
                     if child:IsA("UIGradient") then
                         child:Destroy()
@@ -516,7 +516,7 @@ function Linux.Create(config)
 
             local BtnFrame = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
@@ -560,7 +560,7 @@ function Linux.Create(config)
 
             local hoverColor = Color3.fromRGB(40, 40, 40)
             local clickColor = Color3.fromRGB(0, 120, 255)
-            local originalColor = Color3.fromRGB(25, 25, 25)
+            local originalColor = Color3.fromRGB(28, 28, 28)
             local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
             Btn.MouseEnter:Connect(function()
@@ -602,7 +602,7 @@ function Linux.Create(config)
 
             local Toggle = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
@@ -708,7 +708,7 @@ function Linux.Create(config)
 
             local Dropdown = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
@@ -839,7 +839,7 @@ function Linux.Create(config)
                             Size = UDim2.new(1, -5, 0, 25),
                             Font = Enum.Font.Gotham,
                             Text = tostring(opt),
-                            TextColor3 = opt == SelectedValue and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255),
+                            TextColor3 = Color3.fromRGB(255, 255, 255),
                             TextSize = 14,
                             TextXAlignment = Enum.TextXAlignment.Center,
                             ZIndex = 3,
@@ -856,7 +856,7 @@ function Linux.Create(config)
                             Selected.Text = tostring(opt)
                             for _, btn in pairs(DropFrame:GetChildren()) do
                                 if btn:IsA("TextButton") then
-                                    btn.TextColor3 = btn.Text == tostring(opt) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255)
+                                    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
                                 end
                             end
                             PopulateOptions()
@@ -889,7 +889,7 @@ function Linux.Create(config)
                     Selected.Text = tostring(value)
                     for _, btn in pairs(DropFrame:GetChildren()) do
                         if btn:IsA("TextButton") then
-                            btn.TextColor3 = btn.Text == tostring(value) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255)
+                            btn.TextColor3 = Color3.fromRGB(255, 255, 255)
                         end
                     end
                     spawn(function() Linux:SafeCallback(config.Callback, value) end)
@@ -916,7 +916,7 @@ function Linux.Create(config)
 
             local Slider = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
@@ -971,11 +971,19 @@ function Linux.Create(config)
 
             local FillBar = Linux.Instance("Frame", {
                 Parent = SliderBar,
-                BackgroundColor3 = Color3.fromRGB(0, 120, 255),
                 Size = UDim2.new(0, 0, 1, 0),
                 Position = UDim2.new(0, 0, 0, 0),
                 ZIndex = 2,
                 BorderSizePixel = 0
+            })
+
+            Linux.Instance("UIGradient", {
+                Parent = FillBar,
+                Color = ColorSequence.new({
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 120, 255)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 100, 255))
+                }),
+                Rotation = 45
             })
 
             Linux.Instance("UICorner", {
@@ -1076,7 +1084,7 @@ function Linux.Create(config)
 
             local Input = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
@@ -1104,7 +1112,7 @@ function Linux.Create(config)
 
             local TextBox = Linux.Instance("TextBox", {
                 Parent = Input,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 Size = UDim2.new(0.25, -10, 0, 24),
                 Position = UDim2.new(1, -80, 0.5, -12),
                 Font = Enum.Font.Gotham,
@@ -1183,7 +1191,7 @@ function Linux.Create(config)
 
             local LabelFrame = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
@@ -1303,7 +1311,7 @@ function Linux.Create(config)
 
             local ParagraphFrame = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 0),
@@ -1377,7 +1385,7 @@ function Linux.Create(config)
 
             local NotificationFrame = Linux.Instance("Frame", {
                 Parent = container,
-                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BackgroundColor3 = Color3.fromRGB(28, 28, 28),
                 BorderColor3 = Color3.fromRGB(50, 50, 50),
                 BorderSizePixel = 2,
                 Size = UDim2.new(1, -5, 0, 34),
