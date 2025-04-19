@@ -395,7 +395,7 @@ function Linux.Create(config)
         Linux.Instance("UIPadding", {
             Parent = Container1,
             PaddingLeft = UDim.new(0, 5),
-            PaddingTop = UDim.new(0, 5)
+            PaddingTop = UDim.new(0, 35)
         })
 
         local Container2 = Linux.Instance("ScrollingFrame", {
@@ -423,7 +423,7 @@ function Linux.Create(config)
         Linux.Instance("UIPadding", {
             Parent = Container2,
             PaddingLeft = UDim.new(0, 5),
-            PaddingTop = UDim.new(0, 5)
+            PaddingTop = UDim.new(0, 35)
         })
 
         local TitleFrame = Linux.Instance("Frame", {
@@ -431,7 +431,7 @@ function Linux.Create(config)
             BackgroundColor3 = Color3.fromRGB(17, 17, 17),
             BorderSizePixel = 0,
             Size = UDim2.new(1, -5, 0, 30),
-            Position = UDim2.new(0, 5, 0, 0),
+            Position = UDim2.new(0, 5, 0, -30),
             Visible = false,
             ZIndex = 3
         })
@@ -859,7 +859,6 @@ function Linux.Create(config)
                                     btn.TextColor3 = btn.Text == tostring(opt) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255)
                                 end
                             end
-                            IsOpen = false
                             PopulateOptions()
                             spawn(function() Linux:SafeCallback(config.Callback, opt) end)
                         end)
@@ -961,7 +960,7 @@ function Linux.Create(config)
                 Parent = Slider,
                 BackgroundTransparency = 1,
                 Size = UDim2.new(0, 30, 0, 16),
-                Position = UDim2.new(1, -145, 0, 2),
+                Position = UDim2.new(1, -40, 0, 2),
                 Font = Enum.Font.Gotham,
                 Text = "",
                 TextColor3 = Color3.fromRGB(255, 255, 255),
